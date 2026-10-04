@@ -55,6 +55,8 @@ Fix와 Debug는 사용자 정의에 따라 구분한다. 에셋 Import 커밋도
 
 ## 작업 관리
 
+현재 공개 저장소는 [soonsoo3595/WuwaClone](https://github.com/soonsoo3595/WuwaClone)이며 [작업 보드](https://github.com/users/soonsoo3595/projects/6)를 연결했다. main/dev는 PR과 리뷰 대화 해결을 요구하고 관리자에게도 적용한다. 별도 승인자 수는 0, 필수 CI 검사는 없다. 강제 push와 브랜치 삭제는 금지한다. 기능 PR에는 squash merge, release/hotfix에는 merge commit을 사용한다. GitHub의 squash 기본 제목은 PR 제목이므로 PR 제목도 `태그 | 작업 내용`으로 작성한다. 실제 UE CI 워크플로와 runner는 별도 작업이다.
+
 - GitHub Issues: 목적, 범위, 담당 역할, 선행 작업, 완료 조건, 검증 방법, 관련 문서.
 - GitHub Projects 상태: Backlog → Ready → In Progress → Review → Done.
 - 차단은 blocked 표시와 원인을 기록한다. Done은 dev에 병합된 상태다. 배포 여부는 release와 태그로 추적한다.
