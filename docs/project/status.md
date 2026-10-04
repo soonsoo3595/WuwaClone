@@ -17,7 +17,7 @@
 
 ## 현재 적용 상태
 
-- [공개 GitHub 저장소](https://github.com/soonsoo3595/WuwaClone)를 생성하고 origin으로 연결했다. 최초 커밋은 d533fb5이며 main/dev에 업로드했다. 두 상설 브랜치는 해당 커밋을 가리킨다.
+- [공개 GitHub 저장소](https://github.com/soonsoo3595/WuwaClone)를 생성하고 origin으로 연결했다. 최초 커밋은 d533fb5이며 main/dev에 업로드했다. 초기 업로드 당시 두 상설 브랜치는 해당 커밋을 가리켰다. 이후 dev의 문서·구현 PR 반영은 별도 진행한다.
 - 최초 커밋 제목은 `Chore | 초기 프로젝트와 Git 운영 설정 추가`다. 이후 커밋도 `태그 | 작업 내용`을 사용하며 Fix는 기능 수정, Debug는 버그 수정으로 구분한다. 전체 태그는 repository.md를 따른다.
 - GitHub 계정 soonsoo3595로 인증했다. 커밋 작성자는 Jaehoon과 계정의 noreply 이메일을 사용한다. Git·LFS는 Codex 번들, gh 2.102.0은 임시 폴더에서 실행했다.
 - 기본 브랜치는 main이다. main/dev 모두 PR, 리뷰 대화 해결, 강제 push·브랜치 삭제 금지 보호를 적용했다. 관리자도 보호 대상이다. 단독 개발이므로 별도 승인자 수는 0이며 필수 CI 검사는 아직 없다. 최종 병합은 사용자 결정이다.
