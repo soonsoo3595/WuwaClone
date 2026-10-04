@@ -1,0 +1,48 @@
+# Unreal generated output and local editor state
+
+# Local assets excluded from the public repository
+/Assets/
+
+/Binaries/
+/Intermediate/
+/Saved/
+/DerivedDataCache/
+/Backup/
+**/Plugins/**/Binaries/
+**/Plugins/**/Intermediate/
+/Config/DefaultEditorPerProjectUserSettings.ini
+
+# IDE generated files
+.vs/
+.idea/
+*.sln
+*.slnx
+*.suo
+*.user
+*.VC.db
+*.VC.opendb
+/UpgradeLog*.htm
+
+# .NET / frontend generated output
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/.next/
+**/TestResults/
+/Artifacts/
+
+# Local credentials: keep sanitized examples only
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pfx
+*.p12
+*.pem
+*.key
+**/appsettings.Local.json
+
+# OS files
+Thumbs.db
+.DS_Store
