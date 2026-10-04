@@ -20,6 +20,8 @@ Git LFS를 설치하고 저장소를 가져온 뒤 `git lfs pull`을 실행합�
 - [팀과 세션 운영](docs/project/team.md)
 - [저장소 구조와 Git 운영](docs/project/repository.md)
 - [현재 상태](docs/project/status.md)
+- [에셋 출처와 공개 관리](docs/project/assets.md)
+- [GitHub 작업 보드](https://github.com/users/soonsoo3595/projects/6)
 - [세션 로그 양식](docs/sessions/TEMPLATE.md)
 
 게임·백엔드·게임 배포 설정은 같은 저장소에서 관리하고 기존 홈 서버 인프라는 별도 저장소에서 관리합니다. 에셋별 출처와 공개·배포 조건을 확인하고, 확인되지 않은 외부 에셋은 업로드하지 않습니다.

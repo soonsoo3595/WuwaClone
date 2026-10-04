@@ -1,6 +1,6 @@
 # 현재 상태
 
-최종 갱신: 2026-10-04 (Asia/Seoul), 담당: PM
+최종 갱신: 2026-10-04 (Asia/Seoul), Git 설정 결과 문서 / 최종 병합은 사용자 결정
 
 ## 확정
 
@@ -15,7 +15,25 @@
 - PM과 코드 리뷰 채팅을 운영 중이며, 지정된 프로젝트 세션 사이 메시지 전달을 허용.
 - 일정·예산을 필수 계획 항목으로 요구하지 않는다.
 
-## 적용 상태
+## 현재 적용 상태
+
+- [공개 GitHub 저장소](https://github.com/soonsoo3595/WuwaClone)를 생성하고 origin으로 연결했다. 최초 커밋은 d533fb5이며 main/dev에 업로드했다. 두 상설 브랜치는 해당 커밋을 가리킨다.
+- 최초 커밋 제목은 `Chore | 초기 프로젝트와 Git 운영 설정 추가`다. 이후 커밋도 `태그 | 작업 내용`을 사용하며 Fix는 기능 수정, Debug는 버그 수정으로 구분한다. 전체 태그는 repository.md를 따른다.
+- GitHub 계정 soonsoo3595로 인증했다. 커밋 작성자는 Jaehoon과 계정의 noreply 이메일을 사용한다. Git·LFS는 Codex 번들, gh 2.102.0은 임시 폴더에서 실행했다.
+- 기본 브랜치는 main이다. main/dev 모두 PR, 리뷰 대화 해결, 강제 push·브랜치 삭제 금지 보호를 적용했다. 관리자도 보호 대상이다. 단독 개발이므로 별도 승인자 수는 0이며 필수 CI 검사는 아직 없다. 최종 병합은 사용자 결정이다.
+- squash merge와 merge commit을 허용하고 rebase merge는 비활성화했다. dev 기능 PR은 squash, release/hotfix 반영은 merge commit을 사용한다. squash 기본 제목은 PR 제목이므로 PR 제목도 커밋 메시지 형식을 사용한다.
+- 현재 UE 에셋은 모두 기본 템플릿이라고 사용자가 확인했다. 에셋 출처·공개 정책은 [assets.md](assets.md)에 기록했다. 공개하지 않을 에셋의 루트 Assets/는 Git에서 제외한다. Content/의 .uasset/.umap는 LFS 대상이다.
+- UE 바이너리 에셋 753개, 약 134.42MiB를 LFS로 업로드했다. 스테이징된 에셋의 포인터 형식을 검사했고 로컬 LFS 무결성 검사도 통과했다. 새 clone에서 LFS 재다운로드와 무결성 검사까지 통과했다.
+- Assets/, Saved/ 백업, 빌드 산출물, .env와 플러그인 빌드 산출물 제외를 명령으로 확인했다. 공개 텍스트 후보의 비밀 정보 패턴 검사에서 의심 파일은 0개였다. 바이너리 내부의 비밀 정보 검사는 하지 않았다.
+- Config/DefaultEngine.ini의 Android File Server 연결 토큰을 공개 설정에서 제거했다. 변경 전 설정은 로컬 Saved/GitSetup/DefaultEngine-before-public.ini에만 보관한다. Android File Server를 사용하는 경우 로컬 연결 설정을 별도로 확인해야 한다.
+- [GitHub Project](https://github.com/users/soonsoo3595/projects/6)는 공개이며 저장소에 연결했다. Status는 Backlog → Ready → In Progress → Review → Done이다. 초기 Issues 3개를 Backlog에 등록했다.
+- 초기 Issues: [조작 명세 확정 #1](https://github.com/soonsoo3595/WuwaClone/issues/1), [빌드·실행 재현 절차 #2](https://github.com/soonsoo3595/WuwaClone/issues/2), [이동·카메라와 서버 이동 동기화 #3](https://github.com/soonsoo3595/WuwaClone/issues/3). #3은 선행 작업 때문에 blocked로 표시했다.
+- UE 빌드·런타임·네트워크 QA, 실제 GitHub Actions 워크플로·runner·배포는 아직 수행하거나 구현하지 않았다. 코드 라이선스도 아직 정하지 않았다.
+- 결과 문서는 dev 기반 docs/GIT-SETUP-results 브랜치에서 PR로 제출한다. 이 문서 PR의 사용자 병합은 GitHub 설정·첫 업로드 완료와 별개다.
+
+## 초기 설정 기록 (과거 상태)
+
+아래 기록은 최초 설정 중 관찰한 상태이며 위의 현재 적용 상태로 갱신됐다. 이전 오류와 미완료 항목의 상세 경과는 세션 로그를 참고한다.
 
 - 로컬 Git 저장소를 main 초기 브랜치로 초기화했다. 최초 커밋과 dev 생성은 아직 하지 않았다.
 - .gitignore, .gitattributes, AGENTS.md, README, 작업/PR 양식, 세션 로그 양식을 준비했다.
@@ -37,9 +55,9 @@
 
 ## 다음 작업
 
-1. GitHub 저장소 주소 또는 소유자·이름 확인과 연결 방법 확보.
-2. 커밋 작성자 설정 확인, 공개 대상 파일·외부 에셋 검토 후 최초 커밋과 dev 생성.
-3. remote 연결·공개 업로드, Issues/Projects와 브랜치 검사 규칙 적용.
-4. 나머지 역할별 지침·채팅 구성, 조작 명세, 개발/빌드 재현 절차 작성.
+1. Git 설정 결과 문서 PR을 검토하고 사용자가 dev 병합 여부를 결정한다.
+2. 초기 Issues의 조작 명세와 정확한 엔진 버전·소스 커밋·빌드 재현 절차를 확정한다.
+3. 나머지 역할별 지침·채팅 구성과 코드 리뷰·QA를 준비한다.
+4. UE runner와 실제 GitHub Actions 검사·배포는 별도 작업으로 구현한다. 구현하지 않은 검사는 필수 조건으로 걸지 않는다.
 
 제안했던 ASP.NET Core 세부 구조, Google 우선 도입, 계정 정책 및 runner 배치는 아직 최종 확정으로 취급하지 않는다.
