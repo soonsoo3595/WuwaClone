@@ -22,9 +22,9 @@
 - GitHub 계정 soonsoo3595로 인증했다. 커밋 작성자는 Jaehoon과 계정의 noreply 이메일을 사용한다. Git·LFS는 Codex 번들, gh 2.102.0은 임시 폴더에서 실행했다.
 - 기본 브랜치는 main이다. main/dev 모두 PR, 리뷰 대화 해결, 강제 push·브랜치 삭제 금지 보호를 적용했다. 관리자도 보호 대상이다. 단독 개발이므로 별도 승인자 수는 0이며 필수 CI 검사는 아직 없다. 최종 병합은 사용자 결정이다.
 - squash merge와 merge commit을 허용하고 rebase merge는 비활성화했다. dev 기능 PR은 squash, release/hotfix 반영은 merge commit을 사용한다. squash 기본 제목은 PR 제목이므로 PR 제목도 커밋 메시지 형식을 사용한다.
-- 현재 UE 에셋은 모두 기본 템플릿이라고 사용자가 확인했다. 에셋 출처·공개 정책은 [assets.md](assets.md)에 기록했다. 공개하지 않을 에셋의 루트 Assets/는 Git에서 제외한다. Content/의 .uasset/.umap는 LFS 대상이다.
+- 현재 UE 에셋은 모두 기본 템플릿이라고 사용자가 확인했다. 에셋 출처·공개 정책은 [assets.md](assets.md)에 기록했다. 공개하지 않을 에셋의 Content/Assets/와 Content/TripoModels/는 Git에서 제외한다. 다른 Content의 .uasset/.umap는 LFS 대상이다. 루트 Assets/ 제외는 사용자 정정으로 폐기했고 복원 PR #11은 미병합 폐쇄했다.
 - UE 바이너리 에셋 753개, 약 134.42MiB를 LFS로 업로드했다. 스테이징된 에셋의 포인터 형식을 검사했고 로컬 LFS 무결성 검사도 통과했다. 새 clone에서 LFS 재다운로드와 무결성 검사까지 통과했다.
-- Assets/, Saved/ 백업, 빌드 산출물, .env와 플러그인 빌드 산출물 제외를 명령으로 확인했다. 공개 텍스트 후보의 비밀 정보 패턴 검사에서 의심 파일은 0개였다. 바이너리 내부의 비밀 정보 검사는 하지 않았다.
+- 초기 설정 당시 Assets/, Saved/ 백업, 빌드 산출물, .env와 플러그인 빌드 산출물 제외를 명령으로 확인했다. 이 중 루트 Assets/ 정책은 폐기됐으며 현재는 Content/Assets/와 Content/TripoModels/를 제외한다. 공개 텍스트 후보의 비밀 정보 패턴 검사에서 의심 파일은 0개였다. 바이너리 내부의 비밀 정보 검사는 하지 않았다.
 - Config/DefaultEngine.ini의 Android File Server 연결 토큰을 공개 설정에서 제거했다. 변경 전 설정은 로컬 Saved/GitSetup/DefaultEngine-before-public.ini에만 보관한다. Android File Server를 사용하는 경우 로컬 연결 설정을 별도로 확인해야 한다.
 - [GitHub Project](https://github.com/users/soonsoo3595/projects/6)는 공개이며 저장소에 연결했다. Status는 Backlog → Ready → In Progress → Review → Done이다. 초기 Issues 3개를 Backlog에 등록했다.
 - 초기 Issues: [조작 명세 확정 #1](https://github.com/soonsoo3595/WuwaClone/issues/1), [빌드·실행 재현 절차 #2](https://github.com/soonsoo3595/WuwaClone/issues/2), [이동·카메라와 서버 이동 동기화 #3](https://github.com/soonsoo3595/WuwaClone/issues/3). #3은 선행 작업 때문에 blocked로 표시했다.
