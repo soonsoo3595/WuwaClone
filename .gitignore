@@ -3,6 +3,10 @@
 # Local assets excluded from the public repository
 /Assets/
 
+# Local asset folders excluded from public Git
+/Content/Assets/
+/Content/TripoModels/
+
 /Binaries/
 /Intermediate/
 /Saved/
