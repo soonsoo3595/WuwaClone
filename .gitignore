@@ -1,11 +1,11 @@
 # Unreal generated output and local editor state
 
-# Local assets excluded from the public repository
-/Assets/
-
 # Local Tripo models and separately installed plugin distribution
 /Content/TripoModels/
 /Plugins/Tripo3DUEBridge-UE5.8-Win64/
+
+# Local asset folders excluded from public Git
+/Content/Assets/
 
 /Binaries/
 /Intermediate/
