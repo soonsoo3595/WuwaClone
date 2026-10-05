@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "WuwaBaseCharacter.generated.h"
 
-UCLASS()
+UCLASS(Abstract)
 class WUWACLONE_API AWuwaBaseCharacter : public ACharacter
 {
 	GENERATED_BODY()
@@ -14,12 +14,4 @@ class WUWACLONE_API AWuwaBaseCharacter : public ACharacter
 public:
 	AWuwaBaseCharacter();
 
-protected:
-	virtual void BeginPlay() override;
-
-public:	
-	virtual void Tick(float DeltaTime) override;
-
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	
 };

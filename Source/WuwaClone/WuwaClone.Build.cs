@@ -24,20 +24,7 @@ public class WuwaClone : ModuleRules
 		PrivateDependencyModuleNames.AddRange(new string[] { });
 
 		PublicIncludePaths.AddRange(new string[] {
-			"WuwaClone",
-			"WuwaClone/Variant_Platforming",
-			"WuwaClone/Variant_Platforming/Animation",
-			"WuwaClone/Variant_Combat",
-			"WuwaClone/Variant_Combat/AI",
-			"WuwaClone/Variant_Combat/Animation",
-			"WuwaClone/Variant_Combat/Gameplay",
-			"WuwaClone/Variant_Combat/Interfaces",
-			"WuwaClone/Variant_Combat/UI",
-			"WuwaClone/Variant_SideScrolling",
-			"WuwaClone/Variant_SideScrolling/AI",
-			"WuwaClone/Variant_SideScrolling/Gameplay",
-			"WuwaClone/Variant_SideScrolling/Interfaces",
-			"WuwaClone/Variant_SideScrolling/UI"
+			"WuwaClone"
 		});
 
 		// Uncomment if you are using Slate UI
