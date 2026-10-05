@@ -5,4 +5,4 @@
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, WuwaClone, "WuwaClone" );
 
-DEFINE_LOG_CATEGORY(LogWuwaClone)
+DEFINE_LOG_CATEGORY(LogWuwa)
