@@ -6,6 +6,9 @@
 #include "GameFramework/Character.h"
 #include "WuwaBaseCharacter.generated.h"
 
+class UMaterialInterface;
+class USkeletalMeshComponent;
+
 UCLASS(Abstract)
 class WUWACLONE_API AWuwaBaseCharacter : public ACharacter
 {
@@ -13,5 +16,21 @@ class WUWACLONE_API AWuwaBaseCharacter : public ACharacter
 
 public:
 	AWuwaBaseCharacter();
+	virtual void OnConstruction(const FTransform& Transform) override;
+
+protected:
+	virtual void BeginPlay() override;
+
+private:
+	void UpdateOutlineMesh();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Appearance|Outline", meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<USkeletalMeshComponent> OutlineMesh;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Appearance|Outline", meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UMaterialInterface> OutlineMaterial;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Appearance|Outline", meta = (AllowPrivateAccess = "true"))
+	bool bEnableOutline = true;
 
 };
