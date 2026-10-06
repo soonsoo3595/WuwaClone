@@ -30,4 +30,13 @@
 
 ## 인수인계
 
-- 최종 4개 업로드와 PR은 Git 세션 담당. 패키지 썸네일의 존재·공개 판단 또는 제거는 미완료 사항으로 전달.
+- 최초 정리 시에는 최종 4개 업로드와 PR을 Git 세션에 맡길 예정이었으나, 아래 사용자 변경으로 에셋 업로드는 제외함.
+
+## 사용자 이동 반영 및 최종 인수인계
+
+- 사용자가 최종 머티리얼 4개를 Content/TripoModels/FemaleRover/Materials로 이동함. M_FemaleRover_Toon, MI_FemaleRover_Toon, M_FemaleRover_Outline, MI_FemaleRover_Outline은 로컬 에셋으로 유지하고 커밋·PR에서 제외함.
+- git check-ignore -v로 4개 모두 기존 .gitignore의 /Content/TripoModels/ 규칙에 해당함을 확인. git ls-files로 Content/TripoModels 및 Content/Materials 아래 추적 파일이 없음을 확인함.
+- Unreal MCP로 FemaleRover 메시의 기본 Toon 머티리얼, BP_WuwaPlayableCharacter의 OutlineMaterial, 두 인스턴스의 Parent가 모두 이동된 경로를 참조함을 확인함. 추가 에셋 수정·저장은 하지 않음.
+- 머티리얼이 업로드 대상에서 제외되므로 앞서 기록한 패키지 썸네일 제거는 이번 PR의 선행 조건이 아님. 과거 작업 로그의 /Game/Materials 경로는 당시 생성 위치이며 현재 경로는 /Game/TripoModels/FemaleRover/Materials임.
+- PR에는 이 세션의 C++ 외곽선 구현과 작업 로그를 포함하도록 Git 세션에 전달. 다른 세션 변경이 섞인 Blueprint·레벨은 기존 분리 방침을 유지함.
+- 사용자는 현재 정리·Git 작업을 추가 확인 없이 진행하도록 승인했으며 Git 세션에도 해당 승인을 전달하도록 명시함. 실행 환경의 승인 정책 자체를 변경한 것은 아님.
