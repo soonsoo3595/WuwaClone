@@ -47,6 +47,7 @@ void AWuwaBasePlayerController::SetupInputComponent()
 	InputSubsystem->AddMappingContext(DefaultMappingContext, 0);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AWuwaBasePlayerController::Move);
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AWuwaBasePlayerController::Jump);
+	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AWuwaBasePlayerController::Look);
 }
 
 void AWuwaBasePlayerController::Move(const FInputActionValue& Value)
@@ -74,13 +75,22 @@ void AWuwaBasePlayerController::Jump()
 	}
 }
 
+void AWuwaBasePlayerController::Look(const FInputActionValue& Value)
+{
+	const FVector2D LookInput = Value.Get<FVector2D>();
+	AddYawInput(LookInput.X);
+	AddPitchInput(LookInput.Y);
+}
+
 #if !UE_BUILD_SHIPPING
 void AWuwaBasePlayerController::ValidateAssignedAssets() const
 {
 	checkf(IsValid(DefaultMappingContext) == true, TEXT("DefaultMappingContext를 지정해야 합니다: %s"), *GetNameSafe(this));
 	checkf(IsValid(MoveAction) == true, TEXT("MoveAction을 지정해야 합니다: %s"), *GetNameSafe(this));
 	checkf(IsValid(JumpAction) == true, TEXT("JumpAction을 지정해야 합니다: %s"), *GetNameSafe(this));
+	checkf(IsValid(LookAction) == true, TEXT("LookAction을 지정해야 합니다: %s"), *GetNameSafe(this));
 	checkf(MoveAction->ValueType == EInputActionValueType::Axis2D, TEXT("MoveAction은 Axis2D 타입이어야 합니다: %s"), *GetNameSafe(this));
 	checkf(JumpAction->ValueType == EInputActionValueType::Boolean, TEXT("JumpAction은 Digital (bool) 타입이어야 합니다: %s"), *GetNameSafe(this));
+	checkf(LookAction->ValueType == EInputActionValueType::Axis2D, TEXT("LookAction은 Axis2D 타입이어야 합니다: %s"), *GetNameSafe(this));
 }
 #endif

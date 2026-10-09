@@ -30,9 +30,13 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	TObjectPtr<UInputAction> JumpAction;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Input")
+	TObjectPtr<UInputAction> LookAction;
+
 private:
 	void Move(const FInputActionValue& Value);
 	void Jump();
+	void Look(const FInputActionValue& Value);
 
 #if !UE_BUILD_SHIPPING
 	void ValidateAssignedAssets() const;
